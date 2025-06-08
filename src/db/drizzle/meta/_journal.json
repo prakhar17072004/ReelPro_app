@@ -8,6 +8,20 @@
       "when": 1749373010471,
       "tag": "0000_awesome_thing",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1749375440011,
+      "tag": "0001_steep_ben_urich",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749382180929,
+      "tag": "0002_fixed_spectrum",
+      "breakpoints": true
     }
   ]
 }
