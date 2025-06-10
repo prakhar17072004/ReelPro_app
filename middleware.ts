@@ -8,7 +8,23 @@ export default withAuth(
     {
         callbacks:{
             authorized :({token,req})=>{
-              req.nextUrl
+             const {pathname}= req.nextUrl
+             
+
+             //allow auth related routes
+
+             if(
+               pathname.startsWith("/api/auth")||
+               pathname=== "/login"||
+               pathname ==="/register"
+             ){
+                return true
+             }
+             //public path
+             if(pathname==="/"||pathname.startsWith("/api/videos")){
+                return true
+             }
+             return !!token
             }
         }
     }
