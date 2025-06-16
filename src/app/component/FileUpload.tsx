@@ -1,7 +1,7 @@
 "use client ";
-import React, { useRef, useState } from "react";
-import { IKContext, IKUpload } from "imagekitio-react";
-import { Loader } from "lucide-react";
+import React, {  useState } from "react";
+import {  IKUpload } from "imagekitio-react";
+import { Loader2 } from "lucide-react";
 import { IKUploadProps } from "imagekitio-react/dist/types/components/IKUpload/props";
 
 interface FileUploadProps {
@@ -10,21 +10,8 @@ interface FileUploadProps {
   fileType?: "image" | "video";
 }
 
-const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
-const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
-// const authenticator = async ()=>{
-//     try {
-//         const response = await fetch("/api/imagekit-auth");
-//         if(!response.ok){
-//             const errorText = await response.text();
-//             throw new Error(`Request failed  with status `)
 
-//         }
-//     } catch (error) {
-
-//     }
-// }
 
 export default function FileUpload({
   onSuccess,
@@ -47,16 +34,19 @@ export default function FileUpload({
     onSuccess(response); //here we pass the response to onSuccess props
   };
 
-  const handleProgress = () => {
-    setUploading(true);
+  const handleProgress = (evt:ProgressEvent) => {
+    if(evt.lengthComputable && onProgress){
+      const percentComplete =(evt.loaded /evt.total)*100;
+      onProgress(Math.round(percentComplete));
+    }
+    
+  };
+
+  const handleStartUpload = () => {
+   setUploading(true);
     setError(null);
-  };
 
-  const handleStartUpload = (evt: ProgressEvent) => {
-    console.log("Progress", evt);
-  };
-
-  const validate = (file: File) => {
+  const validateFile = (file: File) => {
     if (fileType === "video") {
       if (!file.type.startsWith("/video")) {
         setError("Please upload video file");
@@ -81,11 +71,33 @@ export default function FileUpload({
   };
   return (
     <div className="space-y-2">
-        <IKUpload file>
+        <IKUpload 
+        fileName={fileType === "video" ?"video":"image"}
+        useUniqueFileName={true} 
+        validateFile={validateFile}   
+        onError={onError}  
+        onSuccess={handleSuccess}
+        onUploadProgress={handleProgress}
+        onUploadStart={handleStartUpload} 
+        accept={fileType==="video"?"video/*":"images/*"}
+        className="file-input file-input-bordered w-full"
+        folder={fileType==="video"? "/video":"/image"} 
 
-        </IKUpload>
+        />
+        {
+          uploading && (
+            <div className=" flex items-center gap-2 text-sm ">
+              <Loader2 className="animate-spin w-4 h-4"/>
+              <span>Uploading...</span>
+              </div>
+          )
+        }
+        {error && (
+          <div className="text-error text-sm ">{error}</div>
+        )}
 
   </div>
-  )
+  );
+}
  
 }
