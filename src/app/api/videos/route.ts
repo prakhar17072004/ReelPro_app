@@ -1,9 +1,9 @@
-import { db } from "@/db"; // Adjust path if needed
-import { videosTable } from "@/db/schema"; // Your Drizzle schema
-import { authOptions } from "@/lib/auth";
+import { db } from "../../../db/index"; // Adjust path if needed
+import { videosTable } from "../../../db/schema"; // Your Drizzle schema
+import { authOptions } from "../../../lib/auth";
 import { error } from "console";
 import { desc } from "drizzle-orm";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { NextResponse ,NextRequest} from "next/server";
 
 export async function GET() {

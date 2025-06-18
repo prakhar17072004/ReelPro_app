@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/db/index";
-import { usersTable } from "@/db/schema";
+import { db } from "../../../../db/index";
+import { usersTable } from "../../../../db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcrypt";
 
