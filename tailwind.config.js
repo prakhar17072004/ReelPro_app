@@ -1,23 +1,17 @@
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
+/** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
 
-module.exports = {
-    content: [
-        "./app/**/*.{js,ts,jsx,tsx}",
-        "./pages/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}",
-      ],
+const config = {
+  content: [
+    "./src/**/*.{html,js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {
-      colors: {
-        primary: "#1DA1F2",
-        secondary: "#14171A"
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
-  
-  plugins: [require("daisyui")], // ✅ This is the only place you should register it
+  plugins: [daisyui],
+  daisyui: {
+    themes: ["light", "dark", "cupcake", "retro", "cyberpunk", "valentine"],
+  },
 };
+
+export default config;

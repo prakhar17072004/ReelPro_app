@@ -6,7 +6,7 @@ const config = {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [daisyui],
   daisyui: {
     themes: ["light", "dark", "cupcake", "retro", "cyberpunk", "valentine"], // 🌗 you can customize this list
   },
