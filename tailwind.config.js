@@ -1,16 +1,16 @@
 /** @type {import('tailwindcss').Config} */
-import daisyui from 'daisyui';
-
 const config = {
   content: [
-    "./src/**/*.{html,js,ts,jsx,tsx}",
+    "./src/**/*.{html,js,ts,jsx,tsx}", // adjust this path to your files
   ],
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [
+    require('daisyui'), // <--- CHANGE THIS LINE: Use require('daisyui')
+  ],
   daisyui: {
-    themes: ["light", "dark", "cupcake", "retro", "cyberpunk", "valentine"],
+    themes: ["light", "dark", "cupcake", "retro", "cyberpunk", "valentine"], // 🌗 you can customize this list
   },
 };
 
