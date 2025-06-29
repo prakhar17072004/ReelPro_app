@@ -57,7 +57,7 @@ function Register() {
         className='w-full px-3 py-2 border rounded'/>
        </div>
        <div>
-        <label htmlFor='confirmPassword' className='block mb-1'>ConfirmPassword</label>
+        <label htmlFor='confirmPassword' className='block mb-2'>ConfirmPassword</label>
         <input type="confirmPassword" 
         id='confirmPassword'
         value={confirmPassword}
