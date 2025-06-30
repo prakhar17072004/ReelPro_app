@@ -69,7 +69,7 @@ function Register() {
           Register
        </button>
        <p className='text-center mt-4'>Already have an account?{" "}</p>
-       <Link href='/login' className='text-blue-500 hover:text-blue-600 '>Login</Link>
+       <Link href='/login' className='text-blue-600 hover:text-blue-700 '>Login</Link>
        </form>
 
     </div>
