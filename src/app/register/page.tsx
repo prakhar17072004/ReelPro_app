@@ -65,7 +65,7 @@ function Register() {
         required
         className='w-full px-3 py-2 border rounded'/>
        </div>
-       <button type='submit' className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 '>
+       <button type='submit' className='w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 '>
           Register
        </button>
        <p className='text-center mt-4'>Already have an account?{" "}</p>
