@@ -70,7 +70,7 @@ export default function FileUpload({
     return false;
   };
   return (
-    <div className="space-y-2">
+    <div className="space-y-4">
         <IKUpload 
         fileName={fileType === "video" ?"video":"image"}
         useUniqueFileName={true} 
