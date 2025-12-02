@@ -86,7 +86,7 @@ export default function FileUpload({
         />
         {
           uploading && (
-            <div className=" flex items-center gap-2 text-sm ">
+            <div className=" flex items-center gap-4 text-sm ">
               <Loader2 className="animate-spin w-4 h-4"/>
               <span>Uploading...</span>
               </div>
