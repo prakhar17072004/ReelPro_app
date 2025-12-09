@@ -3,6 +3,6 @@ import Image from "next/image";
 export default function Home() {
   return (
 
-    <div className="text-red-950">hey Prakhar</div>
+    <div className="text-red-900">hey Prakhar</div>
   )
 }
